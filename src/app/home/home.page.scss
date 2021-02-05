@@ -25,3 +25,46 @@
 #container a {
   text-decoration: none;
 }
+
+
+// table
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ece805;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: rgb(17, 17, 17);}
+
+#customers tr:hover {background-color: rgb(17, 17, 17);}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #ece805;
+  color: black;
+}
+
+td { text-wrap: normal;
+  word-wrap: break-word; }
+
+  table td {
+    word-wrap: break-word;         /* All browsers since IE 5.5+ */
+    overflow-wrap: break-word;     /* Renamed property in CSS3 draft spec */
+}
+
+.add{
+  position: absolute;
+  right: 10px;
+}
+
+.tname{
+  width: 30%;
+}
+

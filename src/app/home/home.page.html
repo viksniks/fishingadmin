@@ -1,20 +1,105 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+     Fishing
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-card>
+  
+      <ion-item>
+        <ion-icon slot="start" color="primary" name="location-outline"></ion-icon>
+       <ion-label style="color: #ece805; font-size:25px;"><b>Location:</b></ion-label>
+        <ion-input style="font-size:25px;" class="form-control" type="text" placeholder="Location...."></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon slot="start" color="primary" name="document-text-outline"></ion-icon>
+       <ion-label style="color: #ece805; font-size:25px;"><b>Comment:</b></ion-label>
+       <ion-textarea style="font-size:25px;"  cols="40" rows="5" class="form-control" type="text" placeholder="Megjegyzés...."></ion-textarea>
+      </ion-item>
+   
+
+  
+    <ion-card-content>
+      <!-- <ion-button slot="end" size="small">Save</ion-button> -->
+      <!-- <ion-button class="btn btn-default" color="primary" type="button" (click)="addFieldValue()">Add</ion-button> -->
+    </ion-card-content>
+  </ion-card>
+
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      <div>
+        <table class="table table-striped table-bordered" id="customers">
+          <thead>
+              <tr>
+                  <th class="tname">Name</th>
+                  <th>Sektor</th>
+                  <th>Weight (gr)</th>
+                  <th>piece</th>
+                  <th>Time</th>
+                  <th>Action</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let key of keys; let i = index">
+                  <td>
+                      <ion-input style="font-size:25px;"  cols="40" rows="5" [(ngModel)]="obj[key].name" class="form-control name" type="text" ></ion-input> 
+                  </td>
+                  <td>
+                    <ion-input style="font-size:25px;"  cols="40" rows="5" [(ngModel)]="obj[key].sektor" class="form-control" type="text" ></ion-input> 
+                </td>
+                  <td>
+                      <ion-textarea style="font-size:25px;" cols="40" rows="5" [(ngModel)]="obj[key].weight" class="form-control" type="text" ></ion-textarea>
+                  </td>
+                  <td>
+                      <ion-textarea  style="font-size:25px;"  cols="40" rows="5" [(ngModel)]="obj[key].piece" class="form-control" type="text" ></ion-textarea>
+                  </td>
+                  <td>
+                    <ion-textarea  style="font-size:25px;"  cols="40" rows="5" [(ngModel)]="obj[key].time" class="form-control" type="text" ></ion-textarea>
+                </td>
+                  <td>
+                      <ion-button  class="btn btn-default" color="danger"  type="button" (click)="deleteFieldValue(key)">Delete</ion-button>
+                  </td>
+              </tr>
+              <tr>
+                  <!-- <td>
+                      <ion-input cols="40" rows="5" class="form-control name" type="text" id="newAttributeName" [(ngModel)]="newAttribute.name" name="newAttributeName"></ion-input>
+                  </td>
+                  <td>
+                    <ion-input cols="40" rows="5" class="form-control" type="text" id="newAttributeSzektor" [(ngModel)]="newAttribute.sektor" name="newAttributeSzektor"></ion-input>
+                </td>
+                  <td>
+                      <ion-textarea cols="40" rows="5" class="form-control" type="text" id="newAttributeWeight" [(ngModel)]="newAttribute.weight" name="newAttributeWeight"></ion-textarea>
+                  </td>
+                  <td>
+                      <ion-textarea cols="40" rows="5" class="form-control" type="text" id="newAttributePiece" [(ngModel)]="newAttribute.piece" name="newAttributePiece"></ion-textarea>
+                  </td>
+                  <td>
+                    <ion-textarea cols="40" rows="5" class="form-control" type="text" id="newAttributeTime" [(ngModel)]="newAttribute.time" name="newAttributeTime"></ion-textarea>
+                </td> -->
+                  <!-- <td>
+                      <ion-button class="btn btn-default" color="primary" type="button" (click)="addFieldValue()">Add</ion-button>
+                  </td> -->
+              </tr>
+          </tbody>
+      </table>
+       
+      </div>
+    </ion-col>
+    
+  </ion-row>
+  <ion-button (click)="insertData()" color="primary">
+    <ion-icon slot="end" name="save"></ion-icon>
+    Save
+  </ion-button>
+  <ion-button class="btn btn-default add" color="success" style="text-align: right;" type="button" (click)="addFieldValue()">Add</ion-button>
+
+
+</ion-grid>
+
 </ion-content>
