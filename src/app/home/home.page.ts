@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import {CallingService} from "../api/calling.service";
+import {ToastController,LoadingController} from "@ionic/angular";
 
 @Component({
   
@@ -16,10 +17,28 @@ export class HomePage {
    
   obj:any={};
   keys:any[]=[];
+  location:string="";
+  comments:string="";
   
-  constructor(private service:CallingService)
+  constructor(private service:CallingService,private loader:LoadingController,private toast:ToastController)
   {
 
+  }
+  getMetaInfo()
+  {
+    var ref = this;
+    this.service.getMetaInfo(function(data)
+    {
+      if(data)
+      {
+       ref.location = data.location;
+       ref.comments = data.comments;
+      }
+    })
+  }
+  insertMetaInfo()
+  {
+  this.service.insertMetaInfo({location:this.location,comments:this.comments});
   }
   ngOnInit()
   {
@@ -45,11 +64,18 @@ export class HomePage {
     if(window.confirm("Do you want to delete?"))
     {
     var ref = this;
+    this.loader.create({
+      message:"please wait..."
+    }).then((ele)=>{
+  
+    ele.present();
    this.service.deleteData(key,function(data)
    {
-     alert(data);
+     ele.dismiss();
+     ref.showToast(data);
      ref.getData();
    })
+  })
   }
   }
 
@@ -80,26 +106,41 @@ export class HomePage {
 //    }
    //(JSON.stringify(arr));
    
-  
+  this.loader.create({
+    message:"please wait..."
+  }).then((ele)=>{
+
+  ele.present();
     this.service.insertData(this.obj,function(str)
     {
       //alert(str);
+      ele.dismiss();
+      ref.showToast(str);
+      ref.insertMetaInfo();
       ref.getData();
 
     });
+  })
   
   }
 
   getData()
   {
     let ref = this;
+    this.loader.create({
+      message:"please wait..."
+    }).then((ele)=>{
+  
+    ele.present();
     this.service.getData(function(data)
     {
+      ele.dismiss();
       if(data)
       {
       console.log(JSON.stringify(data));
       ref.keys = Object.keys(data);
       ref.obj = data;
+      ref.getMetaInfo();
       //alert(JSON.stringify(keys));
     //   let arr = [];
     //   for(var i = 0;i<keys.length;i++)
@@ -114,6 +155,18 @@ export class HomePage {
     //     ref.fieldArray = arr;
     //   }
       }
+    })
+  })
+  
+  }
+
+  showToast(msg)
+  {
+    this.toast.create({
+      message:msg,
+      duration:3000
+    }).then((ele)=>{
+      ele.present();
     })
   }
   

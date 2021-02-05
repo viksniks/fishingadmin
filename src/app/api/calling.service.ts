@@ -23,6 +23,20 @@ export class CallingService {
     
     
    }
+   getMetaInfo(fn)
+   {
+    firebase.database().ref(this.appname+"/metainfo").once('value').then(function (snapshot) {
+      let data =  snapshot.val();
+      fn(data);
+ 
+    });
+     
+   }
+   insertMetaInfo(obj)
+   {
+    firebase.database().ref(this.appname+"/metainfo").set(obj);
+     
+   }
    deleteData(key,fn)
    {
     firebase.database().ref(this.appname + "/data/"+key+"/").remove(function (err) {
@@ -31,7 +45,7 @@ export class CallingService {
         fn(JSON.stringify(err));
       }
       else{
-         fn("successfully inserted!!!");
+         fn("successfully deleted!!!");
       }
     });
    

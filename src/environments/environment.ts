@@ -10,13 +10,13 @@ export const environment = {
   //  // authDomain: "gt06-59e86.firebaseapp.com",
   //  databaseURL: "https://trackonmap-b0571.firebaseio.com/",
   //  storageBucket: "trackonmap-b0571.appspot.com"
-  apiKey: "",
-  authDomain: "horgaszvip.firebaseapp.com",
-  databaseURL: "",
-  projectId: "horgaszvip",
-  storageBucket: "horgaszvip.appspot.com",
-  messagingSenderId: "544964973382",
-  appId: "1:544964973382:web:c8b457d16e0d00b5d88b47"
+  apiKey: "AIzaSyBU72xlQbf4ZWONW6l2S_KDeutKmbshphk",
+ // authDomain: "horgaszvip.firebaseapp.com",
+  databaseURL: "https://ionic-fcm-9a97b.firebaseio.com/",
+  // projectId: "horgaszvip",
+  // storageBucket: "horgaszvip.appspot.com",
+  // messagingSenderId: "544964973382",
+  // appId: "1:544964973382:web:c8b457d16e0d00b5d88b47"
    }
 };
 

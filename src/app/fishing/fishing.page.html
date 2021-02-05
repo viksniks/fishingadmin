@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+     
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-icon (click)="getData()" size="large" color="primary" name="refresh-outline"></ion-icon>
+    </ion-buttons>
+
+        
+           
+    <ion-title>Horgászverseny</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-item>
+  
+       <ion-label><b>Location:{{location}}</b></ion-label>
+
+    </ion-item>
+  
+    <ion-card-content>
+      <ion-label><b>Comment:{{comments}}</b></ion-label>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-grid class="">
+  
+    <ion-row>
+      <ion-col>Name</ion-col>
+      <ion-col>Weight (gr)</ion-col>
+      <ion-col>Piece</ion-col>
+      <ion-col>Date</ion-col>
+    </ion-row>
+    <ion-row  *ngFor="let key of keys; let i = index">
+      <ion-col>{{obj[key].name}}</ion-col>
+      <ion-col>{{obj[key].weight}}</ion-col>
+      <ion-col>{{obj[key].piece}}</ion-col>
+      <ion-col>{{obj[key].time}}</ion-col>
+    </ion-row>
+   
+  </ion-grid>
+
+</ion-content>

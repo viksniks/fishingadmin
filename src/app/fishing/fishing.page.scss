@@ -1,0 +1,44 @@
+ion-grid {
+   
+    border-collapse: collapse;
+    border-style: hidden;
+  
+    
+    ion-row:first-child {
+      background-color:  rgb(255, 255, 0);
+      font-weight: bold;
+      color: black;
+    }
+    ion-col {
+      border: 1px solid rgb(255, 255, 0);
+      border-bottom: 0;
+      border-right: 0;
+      font-size: 12px;
+    }
+    ion-col:last-child {
+      border-right: 1px solid rgb(255, 255, 0);
+    }
+    
+    ion-row:last-child {
+      border-bottom: 1px solid rgb(255, 255, 0);
+    }
+  }
+  
+  table.mat-table {
+    display: table;
+    width: 100%;
+    th {
+        background-color: red;
+        color: white;
+    }
+}
+
+.ion-content{
+    margin: 0;
+    background-color: rgb(81, 81, 81);
+}
+
+.card {
+    background-color: rgb(81, 81, 81); // black
+    box-shadow: none;
+  }

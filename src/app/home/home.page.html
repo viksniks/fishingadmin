@@ -13,13 +13,13 @@
       <ion-item>
         <ion-icon slot="start" color="primary" name="location-outline"></ion-icon>
        <ion-label style="color: #ece805; font-size:25px;"><b>Location:</b></ion-label>
-        <ion-input style="font-size:25px;" class="form-control" type="text" placeholder="Location...."></ion-input>
+        <ion-input [(ngModel)]="location" style="font-size:25px;" class="form-control" type="text" placeholder="Location...."></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-icon slot="start" color="primary" name="document-text-outline"></ion-icon>
        <ion-label style="color: #ece805; font-size:25px;"><b>Comment:</b></ion-label>
-       <ion-textarea style="font-size:25px;"  cols="40" rows="5" class="form-control" type="text" placeholder="Megjegyzés...."></ion-textarea>
+       <ion-textarea [(ngModel)]="comments" style="font-size:25px;"  cols="40" rows="5" class="form-control" type="text" placeholder="Megjegyzés...."></ion-textarea>
       </ion-item>
    
 
